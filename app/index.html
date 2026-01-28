@@ -1,32 +1,51 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock Paper Scissors</title>
-  </head>
-  <body>
-    <section>
-      <div class="text-center">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+  <section>
+    <div class="text-center">
       <h1 class="font-bold text-4xl">Rock Paper Scissors</h1>
       <h1 class="inline-block font-bold text-4xl m-5 border p-10">0-0</h1>
-      </div>
-      <div class="flex justify-between m-4">
-      <div class="flex flex-col items-center">
+    </div>
+    <div class="flex justify-between m-4">
+      <div class="flex flex-col items-center" id="user-choice">
         <h1 class="font-bold text-3xl">You</h1>
-        <img src="/images/rock.webp" class="border-black m-2 p-2 border-6 hover:border-blue-600 w-50 h-50 transition duration-100 rounded-full" alt="Rock">
-        <img src="/images/paper.jpg" class="border-black m-2 p-2 border-6 hover:border-blue-600 w-50 h-50 transition duration-100 rounded-full" alt="Paper">
-        <img src="/images/scissors.webp" class="border-black m-2 p-2 border-6 hover:border-blue-600 w-50 h-50 transition duration-100 rounded-full" alt="Scissors">
+        <img src="/images/rock.webp" id="rock"
+          class="border-black m-2 p-2 border-6 hover:border-blue-600 w-50 h-50 transition duration-100 rounded-full"
+          alt="Rock">
+        <img src="/images/paper.jpg" id="paper"
+          class="border-black m-2 p-2 border-6 hover:border-blue-600 w-50 h-50 transition duration-100 rounded-full"
+          alt="Paper">
+        <img src="/images/scissors.webp" id="scissors"
+          class="border-black m-2 p-2 border-6 hover:border-blue-600 w-50 h-50 transition duration-100 rounded-full"
+          alt="Scissors">
       </div>
-      <div class="flex flex-col items-center">
+      <div id="playButton">
+        <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded">
+          Play
+        </button>
+      </div>
+      <div class="flex flex-col items-center" id="resultsContainer">
+      </div>
+      <div class="flex flex-col items-center" id="computer-choice">
         <h1 class="font-bold text-3xl">Computer</h1>
-        <img src="/images/rock.webp" class="border-black m-2 p-2 border-6  w-50 h-50 transition duration-100 rounded-full" alt="Rock">
-        <img src="/images/paper.jpg" class="border-black m-2 p-2 border-6  w-50 h-50 transition duration-100 rounded-full" alt="Paper">
-        <img src="/images/scissors.webp" class="border-black m-2 p-2 border-6  w-50 h-50 transition duration-100 rounded-full" alt="Scissors">
+        <img src="/images/rock.webp" id="computer-rock"
+          class="border-black m-2 p-2 border-6  w-50 h-50 transition duration-100 rounded-full" alt="Rock">
+        <img src="/images/paper.jpg" id="computer-paper"
+          class="border-black m-2 p-2 border-6  w-50 h-50 transition duration-100 rounded-full" alt="Paper">
+        <img src="/images/scissors.webp" id="computer-scissors"
+          class="border-black m-2 p-2 border-6  w-50 h-50 transition duration-100 rounded-full" alt="Scissors">
       </div>
-      </div>
-    </section>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    </div>
+  </section>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>

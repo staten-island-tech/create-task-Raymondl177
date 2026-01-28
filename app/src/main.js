@@ -1,53 +1,57 @@
 import './style.css'
 
-function buttonClass() {
-  const buttons = document.querySelectorAll("img");
-  const defaultBorder = 'border-6';
-  const activeClass = 'border-8';
-  const defaultColor = 'border-black';
-  const activeColor = 'border-blue-600';
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      button.classList.replace(defaultBorder, activeClass);
-      button.classList.replace(defaultColor, activeColor);
-    });
-  });
-}
-buttonClass();
-
 function getComputerChoice() {
   const choices = ['rock', 'paper', 'scissors'];
   const randomNumber = Math.floor(Math.random() * choices.length);
-  return choices[randomNumber];
+  const computerChoice = choices[randomNumber];
+  const computerChoiceElement = document.getElementById(`computer-${computerChoice}`);
+  computerChoiceElement.classList.remove("border-blue-600");
+  computerChoiceElement.classList.add("border-blue-600");
 }
-getComputerChoice();
 
 function playGame() {
-  const userChoice = document.querySelector(".border-8");
-  const computerChoice = getComputerChoice();
-  const result = determineWinner(userChoice, computerChoice);
-  displayResult(result);
-}
+  const userChoices = document.getElementById("user-choice").querySelectorAll("img");
+  const playButton = document.getElementById("playButton");
+  playButton.addEventListener('click', () => {
+    userChoices.forEach(userChoice => {
+      userChoice.addEventListener('click', () => {
+        const userSelection = userChoice.id;
+        getComputerChoice();
+        const computerChoice = getComputerChoice();
+        determineWinner(userSelection, computerChoice);
+      });
+    });
+  });
+};
 playGame();
 
 function determineWinner(userChoice, computerChoice) {
-  if (!userChoice) {
-    return "Please make a selection.";
+  const resultContainer = document.getElementById("result");
+  if (userChoice === "rock") {
+    if (computerChoice === "scissors") {
+      resultContainer.insertAdjacentHTML("beforeend", `<h1 class="inline-block font-bold text-4xl m-5 border p-10">You win!</h1>`);
+    } else if (computerChoice === "paper") {
+      resultContainer.insertAdjacentHTML("beforeend", `<h1 class="inline-block font-bold text-4xl m-5 border p-10">You lose!</h1>`);
+    } else {
+      resultContainer.insertAdjacentHTML("beforeend", `<h1 class="inline-block font-bold text-4xl m-5 border p-10">It's a tie!</h1>`);
+    }
   }
-
-  const userSelection = userChoice.getAttribute("data-choice");
-  if (userSelection === computerChoice) {
-    return "It's a tie!";
+  if (userChoice === "paper") {
+    if (computerChoice === "rock") {
+      resultContainer.insertAdjacentHTML("beforeend", `<h1 class="inline-block font-bold text-4xl m-5 border p-10">You win!</h1>`);
+    } else if (computerChoice === "scissors") {
+      resultContainer.insertAdjacentHTML("beforeend", `<h1 class="inline-block font-bold text-4xl m-5 border p-10">You lose!</h1>`);
+    } else {
+      resultContainer.insertAdjacentHTML("beforeend", `<h1 class="inline-block font-bold text-4xl m-5 border p-10">It's a tie!</h1>`);
+    }
   }
-
-  const winningConditions = {
-    rock: "scissors",
-    paper: "rock",
-    scissors: "paper"
-  };
-
-  return winningConditions[userSelection] === computerChoice
-    ? "You win!"
-    : "You lose!";
+  if (userChoice === "scissors") {
+    if (computerChoice === "paper") {
+      resultContainer.insertAdjacentHTML("beforeend", `<h1 class="inline-block font-bold text-4xl m-5 border p-10">You win!</h1>`);
+    } else if (computerChoice === "rock") {
+      resultContainer.insertAdjacentHTML("beforeend", `<h1 class="inline-block font-bold text-4xl m-5 border p-10">You lose!</h1>`);
+    } else {
+      resultContainer.insertAdjacentHTML("beforeend", `<h1 class="inline-block font-bold text-4xl m-5 border p-10">It's a tie!</h1>`);
+    }
+  }
 }
-
