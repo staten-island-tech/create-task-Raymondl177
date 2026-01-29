@@ -12,9 +12,13 @@
   <section>
     <div class="text-center">
       <h1 class="font-bold text-4xl">Rock Paper Scissors</h1>
-      <h1 class="inline-block font-bold text-4xl m-5 border p-10">0-0</h1>
-      <div id="message" class="text-center font-bold text-2xl mt-4">
-        Select your move then press play
+      <div id="score" class="inline-block font-bold text-4xl m-5 border p-10">
+        <h1 id="user-score" class="inline-block">0</h1>
+        <h1 class="inline-block">-</h1>
+        <h1 id="computer-score" class="inline-block">0</h1>
+      </div>
+      <div id="message" class="text-center font-bold text-3xl mt-4">
+        Select your move to start
       </div>
     </div>
     </div>
@@ -30,11 +34,6 @@
         <img src="/images/scissors.webp" id="scissors"
           class="border-black m-2 p-2 border-6 hover:border-blue-600 w-50 h-50 transition duration-100 rounded-full"
           alt="Scissors">
-      </div>
-      <div id="playButton">
-        <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded">
-          Play
-        </button>
       </div>
       <div class="flex flex-col items-center" id="resultsContainer">
       </div>
