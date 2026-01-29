@@ -1,5 +1,22 @@
 import './style.css'
 
+let userChoice = null
+const userImages = document.querySelectorAll('#user-choice img')
+const message = document.getElementById('message')
+
+userImages.forEach(img => {
+  img.addEventListener('click', () => {
+    userImages.forEach(i => {
+      i.classList.remove('border-blue-600')
+      i.classList.remove('border-8')
+    })
+    img.classList.add('border-blue-600')
+    img.classList.add('border-8')
+    userChoice = img.id
+    message.textContent = ''
+  })
+})
+
 function getComputerChoice() {
   const choices = ['rock', 'paper', 'scissors'];
   const randomNumber = Math.floor(Math.random() * choices.length);
